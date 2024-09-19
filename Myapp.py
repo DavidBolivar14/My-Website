@@ -9,13 +9,13 @@ import requests
 @route('/')
 def index():
     now = datetime.now(pytz.timezone('Pacific/Auckland'))
-    current_time = now.strftime("%H:%M:%S:%A2")
+    current_time = now.strftime("%H:%M:%S:%A")
     time = current_time
     name = 'David'
     response = requests.get(f"https://api.agify.io/?name={name}")
     response = response.json()
     age = response['age']   
-    return template('homepage', time=time, name = name, age=age)
+    return template('index', time=time, name=name, age=age)
 
 
 #main routine1
